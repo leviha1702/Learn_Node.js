@@ -1,7 +1,7 @@
 {
   "name": "learn_Nodejs",
   "version": "1.0.0",
-  "main": "express_app.js",
+  "main": "server.js",
   "dependencies": {
     "accepts": "^1.3.8",
     "array-flatten": "^1.1.1",
@@ -70,7 +70,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch express_app.js"
+    "start": "node --watch server.js"
   },
   "keywords": [],
   "author": "",

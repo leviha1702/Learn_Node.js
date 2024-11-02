@@ -1,4 +1,4 @@
-const express = require ('express');
+/*const express = require ('express');
 const app = express();
 const bodyParser = require("body-parser");
 const { message } = require('statuses');
@@ -38,4 +38,4 @@ app.get('/profile',(req,res)=>{
 //nghe tại cổng 3000
 app.listen(3000,()=>{
     console.log('Server Express.js đang chạy tại http://localhost:3000');
-});
+});*/
