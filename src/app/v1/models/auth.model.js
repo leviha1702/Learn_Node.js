@@ -7,7 +7,7 @@ class authModel {
 
     getUser(username){
         return users.find((user)=>user.username ===username);
-    }
+    };
 }
 
 module.exports = new authModel;

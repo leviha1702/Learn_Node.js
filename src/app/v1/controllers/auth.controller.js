@@ -16,6 +16,13 @@ class authController{
             data:result,
         });
     }
+    static login (req,res){
+        const{username,password} = req.body;
+        const result = authService.login(username,password);
+        return res.status(200).json({
+            message:result.message,
+        });
+    }
 }
 
 module.exports = authController;

@@ -26,5 +26,10 @@ class authService{
             password,
         };
     }
+    login(username,password){
+        return{
+            message:"Login success",
+        };
+    }
 }
 module.exports = new authService;
