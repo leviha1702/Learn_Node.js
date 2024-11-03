@@ -1,4 +1,3 @@
-const { message } = require("statuses");
 const authService = require("../services/auth.service");
 
 class authController{
