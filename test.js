@@ -9,6 +9,8 @@ const hostname= process.env.HOST_NAME;
 app.set('views', path.join(__dirname, './src/views'));
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(__dirname, './src/public')));
+
 app.set('/',(req,res)=>{
     req.send("Hello World");
 });
