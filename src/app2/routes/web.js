@@ -1,11 +1,8 @@
 const express = require('express');
+const { getHomepage, getLevietha } = require('../controllers/homeController');
 const router = express.Router();
 
-router.get('/',(req,res)=>{
-    req.send("Hello World");
-})
-router.get('/levietha', (req,res)=>{
-    res.render('sample.ejs');
-})
+router.get('/',getHomepage);
+router.get('/levietha', getLevietha);
  
 module.exports = router;
