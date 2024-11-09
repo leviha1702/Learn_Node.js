@@ -1,22 +1,20 @@
 const express = require('express');
 const path = require('path');
+const configViewEnginge = require('./src/configs/viewEngine');
+const webRoutes = require('./src/app2/routes/web');
+
 require('dotenv').config();
+
 
 const app = express();
 const port = process.env.PORT || 8000  ;
 const hostname= process.env.HOST_NAME;
 
-app.set('views', path.join(__dirname, './src/views'));
-app.set('view engine', 'ejs');
+configViewEnginge(app);
 
-app.use(express.static(path.join(__dirname, './src/public')));
+app.use('/', webRoutes);
 
-app.set('/',(req,res)=>{
-    req.send("Hello World");
-});
-app.get('/levietha', (req,res)=>{
-    res.render('sample.ejs');
-});
+
 app.listen(port,hostname,() =>{
     console.log(`Example app listening on port ${port}`);
 });
