@@ -1,5 +1,6 @@
+require('dotenv').config();
 const appConstants = {
-    port: 5000
+    port: process.env.PORT
 }
 
 module.exports = appConstants;
