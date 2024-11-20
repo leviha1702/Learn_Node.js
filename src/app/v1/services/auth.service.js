@@ -11,7 +11,7 @@ class authService{
             };
         }
         //2.check existing user
-        const user =authModel.getUser(username);
+        const user = authModel.getUser(username);
         if(user){
             return{
                 success: false,
@@ -26,7 +26,7 @@ class authService{
             password,
         };
     }
-    login(username,password){
+    async login(username,password){
         //1. check invalid
         if(!username||!password){
             return {
@@ -36,7 +36,7 @@ class authService{
             };
         }
         //2.check existing user
-        const user =authModel.getUser(username);
+        const user =await authModel.getUser(username);
         console.log(user);
         if(!user){
             return{
@@ -46,15 +46,16 @@ class authService{
             };
         }
         //3.check password
-        if(user.password !== password){
+        /*if(user.password !== password){
             return {
                 success:false,
                 message:"Password is incorrect",
                 status:400,
             };
-        }
+        }*/
         return{
             message:"Login success",
+            user,
         };
     }
 }

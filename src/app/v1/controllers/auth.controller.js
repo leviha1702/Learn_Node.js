@@ -1,7 +1,7 @@
 const authService = require("../services/auth.service");
 
 class authController{
-    static register(req,res){
+    register(req,res){
         const {username,password} = req.body;
 
         const result = authService.register(username,password);
@@ -16,13 +16,13 @@ class authController{
             data:result,
         });
     }
-    static login (req,res){
+    async login (req,res){
         const{username,password} = req.body;
-        const result = authService.login(username,password);
+        const result =await authService.login(username,password);
         return res.status(200).json({
             message:result.message,
         });
     }
 }
 
-module.exports = authController;
+module.exports = new authController;
