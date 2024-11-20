@@ -8,7 +8,7 @@ class authModel {
 
     async getUser(username){
         const result = await pgDatabase.pool.query(
-            "SELECT * FROM users WHERE username =$1",(username)
+            "SELECT * FROM users WHERE username =$1",[username]
         );
         return result.rows[0];
     }
