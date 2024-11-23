@@ -1,4 +1,3 @@
-const { message } = require("statuses");
 const userModel = require("../models/user.model");
 
 class userService{

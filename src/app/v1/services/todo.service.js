@@ -1,20 +1,60 @@
+const todoModel = require("../models/todo.model");
 
 class todoService{
-    getTodos(){
-        return{};
-    }
-    getTodoById(id){
-        return{};
-    }
-    createdTodo(title,completed,user_id){
+    async getTodos(){
+        const todos = await todorModel.getTodo()
+        if(!todos) {
+            return{error : "No users found"};
+        }
         return{
+            todos,
         };
     }
-    updateTodo(id,completed,user_id){
-        return{};
+    async getUserById({ todoId }){
+        if(!todoId){
+            return {error:"Todo ID is required"};
+        }
+        const todo=await todoModel.getTodoById(todoId);
+        return{
+            todo,
+        };
     }
-    deleteTodo(id){
-        return{};
+    async createdUser({ title,user_id }){
+        if(!title||!user_id){
+            return{error : "title and user Id are required"};
+        }
+        const user = await userModel.createUser(name,email);
+        if(!user){
+            return{error : "User not created"};
+        }
+        return{
+            message:"User created successfully",
+            user,
+        };
+    }
+    async updateUser({userId,name,email}){
+        if(!userId)
+        {
+            return{error:"User ID required"};
+        }
+        const user = await userModel.updateUser(userId,name,email);
+        if(!user)
+        {
+                return{error:"User not update"};
+        }
+        return{
+            user,
+        };
+    }
+    deleteUser({userId}){
+        if(!userId)
+        {
+                    return{error:"User ID is required"};
+        }
+        userModel.deleteUser(userId); 
+        return{
+            message:"User deleted successfully",
+        };
     }
 }
-module.exports = new todoService;
+module.exports = new userService;
