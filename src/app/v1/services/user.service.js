@@ -2,7 +2,7 @@ const userModel = require("../models/user.model");
 
 class userService{
     async getUsers(){
-        const users = await userModel.getUser()
+        const users = await userModel.getUsers()
         if(!users) {
             return{error : "No users found"};
         }
@@ -15,6 +15,9 @@ class userService{
             return {error:"User ID is required"};
         }
         const user=await userModel.getUserById(userId);
+        if(!use){
+            return {error :"User not found"};
+        }
         return{
             user,
         };
@@ -40,7 +43,7 @@ class userService{
         const user = await userModel.updateUser(userId,name,email);
         if(!user)
         {
-                return{error:"User not update"};
+            return{error:"User not update"};
         }
         return{
             user,
@@ -49,7 +52,7 @@ class userService{
     deleteUser({userId}){
         if(!userId)
         {
-                    return{error:"User ID is required"};
+            return{error:"User ID is required"};
         }
         userModel.deleteUser(userId); 
         return{
@@ -57,4 +60,4 @@ class userService{
         };
     }
 }
-module.exports = new userService;
+module.exports = new userService();

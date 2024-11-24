@@ -2,7 +2,7 @@ const todoModel = require("../models/todo.model");
 
 class todoService{
     async getTodos(){
-        const todos = await todorModel.getTodo()
+        const todos = await todorModel.getTodos()
         if(!todos) {
             return{error : "No users found"};
         }
@@ -57,4 +57,4 @@ class todoService{
         };
     }
 }
-module.exports = new userService;
+module.exports = new todoService;

@@ -27,4 +27,4 @@ class todoController{
     }
 }
 
-module.exports = new todoController;
+module.exports = new todoController();
